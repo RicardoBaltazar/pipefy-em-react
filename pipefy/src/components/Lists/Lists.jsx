@@ -23,7 +23,6 @@ export default function Lists() {
                     <Cards />
                     <Cards />
                     
-
                 </ul>
             </div>
         </>

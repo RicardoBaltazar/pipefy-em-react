@@ -9,11 +9,11 @@
     flex-shrink: 0;
     flex-basis: 320px;
     */
-    border-right: 0.1px solid grey;
+    border-right: 0.1px solid #d8d3d3ef;
 }
 
 header{
-    display: flex;
+    display: flex;  
     justify-content: space-between;
     align-items: center;
     height: 42px;
@@ -32,4 +32,8 @@ header button{
     background-color: #3b5bfd;
     border: 0;
     cursor: pointer;
+}
+
+ul{
+    margin-top: 60px;
 }
