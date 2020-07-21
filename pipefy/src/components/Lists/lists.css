@@ -1,0 +1,35 @@
+.container{
+    padding: 0 15px;
+    height: 100%;
+    flex: 0 0 320px;
+
+    /*
+    flex 0 0 320px é a mesma coisa que:
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: 320px;
+    */
+    border-right: 0.1px solid grey;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 42px;
+}
+
+header h2 {
+    font-weight: 500;
+    font-size: 16px;
+    padding: 0 10px;
+}
+
+header button{
+    width: 42px;
+    height: 42px;
+    border-radius: 18px;
+    background-color: #3b5bfd;
+    border: 0;
+    cursor: pointer;
+}
