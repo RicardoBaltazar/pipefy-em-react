@@ -1,14 +1,17 @@
 import React from 'react'
 import "./cards.css"
 
-export default function Cards() {
+import { loadLists } from '../../services/api'
+//const cards = loadLists()
+
+export default function Cards({ data }) {
     return (
         <>
             <div className="cards">
                 <header>
-                    <label htmlFor="" color="#7159c1"></label>
+                    {data.labels.map(label => <label color="#7159c1"></label>)}
                 </header>
-                <p>Loren ipsum loren ipsum lorem ipsum </p>
+    <p>{data.content}</p>
                 <img src="https://api.adorable.io/avatars/285/abott@adorable.png" alt="" />
             </div>
         </>

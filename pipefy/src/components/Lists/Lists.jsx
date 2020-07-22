@@ -5,24 +5,29 @@ import "./lists.css"
 import { MdAdd } from 'react-icons/md'
 import Cards from '../Cards/Cards'
 
-export default function Lists() {
+import { loadLists } from '../../services/api'
+const cards = loadLists()
+
+export default function Lists({ data }) {
     return (
         <>
             <div className="container">
                 <header>
-                    <h2>Tarefas</h2>
+                    <h2>{data.title}</h2>
+                    {data.creatable && (
                     <button>
                         <MdAdd size={24} color='#fff' />
                     </button>
+
+                    )}
+
+
                 </header>
 
                 <ul>
+                    {data.cards.map(card => <Cards key={card.id} data={card} />)}
 
-                    <Cards />
-                    <Cards />
-                    <Cards />
-                    <Cards />
-                    
+
                 </ul>
             </div>
         </>

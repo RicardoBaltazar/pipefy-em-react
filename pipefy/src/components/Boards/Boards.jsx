@@ -3,13 +3,16 @@ import "./boards.css"
 
 import Lists from '../Lists/Lists'
 
+import { loadLists } from '../../services/api'
+//variavel para as listas
+const lists = loadLists()
+
+
 export default function Boards() {
     return (
         <div className="board">
-            <Lists />
-            <Lists />
-            <Lists />
-            <Lists />
+            {lists.map(list => <Lists key={list.title} data={list}/>)}  
+         
         </div>
     )
 }
