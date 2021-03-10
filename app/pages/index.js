@@ -4,7 +4,23 @@ import styled from 'styled-components';
 import Header from '../src/Components/Header';
 
 const Main = styled.main`
-  background-color: blue;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+
+  p {
+    color: #404040;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    @media screen and (max-width: 600px) {      
+      font-size: 1rem;
+    }
+  }
+
+  
 `;
 
 export default function Home() {
@@ -12,7 +28,7 @@ export default function Home() {
     <div >
       <Header />
       <Main>
-        ola mundo
+        <p>Bem-Vindo ao Lista Rango</p>
       </Main>
     </div>
   )
