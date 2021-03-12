@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import Header from '../src/Components/Header';
 import InputSearch from '../src/Components/Input-Search';
+import RestaurantCard from '../src/Components/Restaurant-Card'
 
 const Main = styled.main`
   display: flex;
@@ -19,9 +20,9 @@ const Main = styled.main`
       font-size: 1rem;
     }
   }
-
-  
 `;
+
+
 
 export default function Home() {
   return (
@@ -30,6 +31,9 @@ export default function Home() {
       <Main>
         <p>Bem-Vindo ao Lista Rango</p>
         <InputSearch />
+        <RestaurantCard />
+        <RestaurantCard />
+        <RestaurantCard />
       </Main>
     </div>
   )

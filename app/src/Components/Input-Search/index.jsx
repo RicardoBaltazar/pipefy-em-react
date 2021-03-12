@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import SearchIcon from '@material-ui/icons/Search';
 
 const Form = styled.form`
-    /* border: 1px solid green; */
     display: flex;
     align-items:center;
     @media screen and (max-width: 900px) {      
@@ -30,13 +29,9 @@ const Search = styled.input`
     @media screen and (max-width: 900px) {      
         width: 100%;
     }
-    /* @media screen and (max-width: 600px) {      
-        width: 100%;
-    } */
 `
 
 const Button = styled.button`
-    /* border:1px solid red; */
     display: flex;
     justify-content: center;
     align-items:center;
