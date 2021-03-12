@@ -22,7 +22,19 @@ const Main = styled.main`
   }
 `;
 
+const Section = styled.section`
+  border: 1px solid blue;
+  width: 90vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+  flex-wrap: wrap;
+  @media screen and (max-width: 600px) {      
+      width: 95vw;
+      justify-content: center;
 
+  }
+`
 
 export default function Home() {
   return (
@@ -31,9 +43,14 @@ export default function Home() {
       <Main>
         <p>Bem-Vindo ao Lista Rango</p>
         <InputSearch />
-        <RestaurantCard />
-        <RestaurantCard />
-        <RestaurantCard />
+        <Section>
+          <RestaurantCard />
+          <RestaurantCard />
+          <RestaurantCard />
+          <RestaurantCard />
+          <RestaurantCard />
+          <RestaurantCard />
+        </Section>
       </Main>
     </div>
   )
