@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import img from '../../../public/assets/vegan-restaurant-logo-design_1438-10.png'
+
 const Card = styled.div`
     border: 1px solid purple;
     width: 367px;
@@ -16,6 +18,11 @@ const Card = styled.div`
         width: 90vw;
         margin: 0 0 1rem 0;
     }
+    img{
+        width: 100px;
+        height: 100px;
+        border-radius: 4px 0px 0px 4px;
+    }
     div {
         text-align: left;
     }
@@ -27,11 +34,11 @@ const Card = styled.div`
     }
 `
 
-function RestaurantCard() {
+function RestaurantCard(props) {
     return (
         <>
             <Card>
-                <img src="" alt="logotipo do restaurante" />
+                <img src={img} alt="Logotipo do restaurante"/>
                 <div>
                     <h4>restaurante name</h4>
                     <p>restaurant address</p>
