@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import img from '../../../public/assets/vegan-restaurant-logo-design_1438-10.png'
 
 const Card = styled.div`
-    border: 1px solid purple;
+    /* border: 1px solid #800080; */
     width: 367px;
     height: 100px;
     display: flex;
@@ -32,6 +32,11 @@ const Card = styled.div`
         letter-spacing: 0px;
         color: #404040;
     }
+    div span{
+        color: #2B0D61;
+        font-weight: bold;
+        font-size: 0.6rem;
+    }
 `
 
 function RestaurantCard(props) {
@@ -40,8 +45,9 @@ function RestaurantCard(props) {
             <Card>
                 <img src={img} alt="Logotipo do restaurante"/>
                 <div>
-                    <h4>restaurante name</h4>
-                    <p>restaurant address</p>
+                    <h4>{props.restaurantName}</h4>
+                    <p>{props.restaurantAddress}</p>
+                    <span>{props.restaurantStatus}</span>
                 </div>
             </Card>
         </>

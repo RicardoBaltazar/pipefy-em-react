@@ -44,12 +44,37 @@ export default function Home() {
         <p>Bem-Vindo ao Lista Rango</p>
         <InputSearch />
         <Section>
-          <RestaurantCard />
-          <RestaurantCard />
-          <RestaurantCard />
-          <RestaurantCard />
-          <RestaurantCard />
-          <RestaurantCard />
+          <RestaurantCard 
+          restaurantName='Restaurante 1'
+          restaurantAddress='rua 1 - cidade 1'
+          restaurantStatus='Aberto Agora'
+          />
+          <RestaurantCard 
+          restaurantName='Restaurante 1'
+          restaurantAddress='rua 1 - cidade 1'
+          restaurantStatus='Aberto Agora'
+          />
+          <RestaurantCard 
+          restaurantName='Restaurante 1'
+          restaurantAddress='rua 1 - cidade 1'
+          restaurantStatus='Aberto Agora'
+          />
+          <RestaurantCard 
+          restaurantName='Restaurante 1'
+          restaurantAddress='rua 1 - cidade 1'
+          restaurantStatus='Aberto Agora'
+          />
+          <RestaurantCard 
+          restaurantName='Restaurante 1'
+          restaurantAddress='rua 1 - cidade 1'
+          restaurantStatus='Aberto Agora'
+          />
+          <RestaurantCard 
+          restaurantName='Restaurante 1'
+          restaurantAddress='rua 1 - cidade 1'
+          restaurantStatus='Aberto Agora'
+          />
+          
         </Section>
       </Main>
     </div>
