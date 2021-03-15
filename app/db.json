@@ -1,0 +1,16 @@
+{
+    "restaurants": [
+      { "id": 1, "name": "Restaurante 1", "address": "Rua 1", "status": "Aberto Agora" },
+      { "id": 2, "name": "Restaurante 2", "address": "Rua 2", "status": "Aberto Agora" },
+      { "id": 3, "name": "Restaurante 3", "address": "Rua 3", "status": "Aberto Agora" },
+      { "id": 4, "name": "Restaurante 4", "address": "Rua 4", "status": "Fechado Agora" },
+      { "id": 5, "name": "Restaurante 5", "address": "Rua 5", "status": "Aberto Agora" },
+      { "id": 6, "name": "Restaurante 6", "address": "Rua 6", "status": "Fechado Agora" },
+      { "id": 7, "name": "Restaurante 7", "address": "Rua 7", "status": "Fechado Agora" },
+      { "id": 8, "name": "Restaurante 8", "address": "Rua 8", "status": "Fechado Agora" }
+    ],
+    "comments": [
+      { "id": 1, "body": "some comment", "postId": 1 }
+    ],
+    "profile": { "name": "typicode" }
+  }
