@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 
@@ -23,7 +24,7 @@ const Main = styled.main`
 `;
 
 const Section = styled.section`
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   width: 90vw;
   display: flex;
   justify-content: space-between;
@@ -37,46 +38,43 @@ const Section = styled.section`
 `
 
 export default function Home() {
-  return (
-    <div >
-      <Header />
-      <Main>
-        <p>Bem-Vindo ao Lista Rango</p>
-        <InputSearch />
-        <Section>
-          <RestaurantCard 
-          restaurantName='Restaurante 1'
-          restaurantAddress='rua 1 - cidade 1'
-          restaurantStatus='Aberto Agora'
-          />
-          <RestaurantCard 
-          restaurantName='Restaurante 1'
-          restaurantAddress='rua 1 - cidade 1'
-          restaurantStatus='Aberto Agora'
-          />
-          <RestaurantCard 
-          restaurantName='Restaurante 1'
-          restaurantAddress='rua 1 - cidade 1'
-          restaurantStatus='Aberto Agora'
-          />
-          <RestaurantCard 
-          restaurantName='Restaurante 1'
-          restaurantAddress='rua 1 - cidade 1'
-          restaurantStatus='Aberto Agora'
-          />
-          <RestaurantCard 
-          restaurantName='Restaurante 1'
-          restaurantAddress='rua 1 - cidade 1'
-          restaurantStatus='Aberto Agora'
-          />
-          <RestaurantCard 
-          restaurantName='Restaurante 1'
-          restaurantAddress='rua 1 - cidade 1'
-          restaurantStatus='Aberto Agora'
-          />
-          
-        </Section>
-      </Main>
-    </div>
-  )
+  const [dataRestaurants, setDataRestaurants] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch('http://localhost:8000/restaurants')
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Respota Recebida');
+        console.log(data);
+        setDataRestaurants(data)
+      })
+  }, []);
+
+  const cardsRestautantName = dataRestaurants.map(data => {
+    return (
+      <>
+        <RestaurantCard
+          img={data.image}
+          restaurantName={data.name}
+          restaurantAddress={data.address}
+          restaurantStatus={data.status}
+        />
+      </>
+    )
+  })
+
+return (
+  <div >
+    <Header />
+    <Main>
+      <p>Bem-Vindo ao Lista Rango</p>
+      <InputSearch />
+      <Section>
+        {cardsRestautantName}
+      </Section>
+    </Main>
+  </div>
+)
 }
