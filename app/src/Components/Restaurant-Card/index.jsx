@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import Link from 'next/link';
 
 // import img from '../../../public/assets/vegan-restaurant-logo-design_1438-10.png'
 
-const Card = styled.a`
+const Card = styled.div`
     /* border: 1px solid #800080; */
     width: 367px;
     height: 100px;
@@ -47,6 +48,14 @@ const Card = styled.a`
 function RestaurantCard(props) {
     return (
         <>
+            <Link href={{
+                pathname: props.link,
+                query: { 
+                    id: props.id
+                },
+            }}
+            
+            >
             <Card>
                 <img src={props.img} alt="Logotipo do restaurante"/>
                 <div>
@@ -55,6 +64,7 @@ function RestaurantCard(props) {
                     <span>{props.restaurantStatus}</span>
                 </div>
             </Card>
+            </Link>
         </>
     )
 };

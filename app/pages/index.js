@@ -48,7 +48,7 @@ export default function Home() {
       .then((data) => {
         console.log('Respota Recebida');
         console.log(data);
-        setDataRestaurants(data)
+        setDataRestaurants(data);
       })
   }, []);
 
@@ -56,6 +56,8 @@ export default function Home() {
     return (
       <>
         <RestaurantCard
+          link='/restaurant'
+          id={data.id}
           img={data.image}
           restaurantName={data.name}
           restaurantAddress={data.address}
