@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useRouter } from "next/router"
 
 import Header from '../src/Components/Header';
+import OptionsCardMenu from '../src/Components/Options-Card-Menu';
 
 const Main = styled.main`
     display: flex;
@@ -35,17 +36,25 @@ const Main = styled.main`
             font-weight:bold;
         }
     }
+    .options{
+    }
 `;
 
 export default function PageRestaurant() {
     const router = useRouter()
     const [dataRestaurant, setDataRestaurant] = React.useState([]);
     const [dataImageLunches, setDataImageLunches] = React.useState();
+
+    const [ showOptions, setShowOptions ] = React.useState(false);
+    const onClick = () => setShowOptions(true)
+
     // const {
     //     query: { id }
     // } = router
     console.log(router);
     console.log(router.query.id);
+
+
 
     React.useEffect(() => {
         fetch(`http://localhost:8000/restaurants/${router.query.id}`)
@@ -59,6 +68,29 @@ export default function PageRestaurant() {
                 // setDataImageLunches(data.lunches[0].image)
             })
     }, []);
+
+
+    const Lunches = () => (
+        <OptionsCardMenu 
+        optionMenuName={dataRestaurant.lunches[0].name}
+        optionMenuDescripion={dataRestaurant.lunches[0].description}
+        optionMenuValue={dataRestaurant.lunches[0].price}
+        />
+    )
+    const Drinks = () => (
+        <OptionsCardMenu 
+        optionMenuName={dataRestaurant.drinks[0].name}
+        optionMenuDescripion={dataRestaurant.drinks[0].description}
+        optionMenuValue={dataRestaurant.drinks[0].price}
+        />
+    )
+    const Desserts = () => (
+        <OptionsCardMenu 
+        optionMenuName={dataRestaurant.desserts[0].name}
+        optionMenuDescripion={dataRestaurant.desserts[0].description}
+        optionMenuValue={dataRestaurant.desserts[0].price}
+        />
+    )
 
     return (
         <>
@@ -78,23 +110,29 @@ export default function PageRestaurant() {
                 </div>
                 <hr></hr>
 
-                <div>
+                <div className='options'>
                     <h3>Almoços</h3>
+                    <button onClick={onClick}>Almoços</button>
+                    { showOptions ? <Lunches /> : null }
                     {/* <img src={dataRestaurant.image}/> */}
                     {/* <p>{dataRestaurant.drinks[2].name}</p>
                     <p>{dataRestaurant.lunches[0].name}</p>
                     <p>{dataRestaurant.lunches[0].description}</p>
                     <p>{dataRestaurant.lunches[0].price}</p> */}
                 </div>
-                <div>
+                <div className='options'>
                     <h3>Bebidas</h3>
+                    <button onClick={onClick}>Bebidas</button>
+                    { showOptions ? <Drinks /> : null }
                     {/* <p>{dataRestaurant.drinks[0].name}</p>
                     <p>{dataRestaurant.drinks[0].description}</p>
                     <p>{dataRestaurant.drinks[0].price}</p> */}
                 </div>
-                <div>
-                    {/* <h3>Sobremesas</h3>
-                    <p>{dataRestaurant.desserts[0].name}</p>
+                <div className='options'>
+                    <h3>Sobremesas</h3>
+                    <button onClick={onClick}>Sobremesas</button>
+                    { showOptions ? <Desserts /> : null }
+                    {/* <p>{dataRestaurant.desserts[0].name}</p>
                     <p>{dataRestaurant.desserts[0].description}</p>
                     <p>{dataRestaurant.desserts[0].price}</p> */}
                 </div>
