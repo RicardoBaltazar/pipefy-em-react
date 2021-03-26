@@ -14,7 +14,7 @@ const Card = styled.div`
     box-shadow: 0px 2px 4px #00000029;
     border-radius: 4px;
     opacity: 1;
-    margin: 0 0 2rem 0;
+    margin: 0 1rem 2rem 0;
     transition:0.2s;
     &:hover{
         cursor: pointer;
@@ -31,6 +31,7 @@ const Card = styled.div`
     }
     div {
         text-align: left;
+        margin-left: 0.5rem;
     }
     div p{
         font-size: 0.8rem;
@@ -50,7 +51,7 @@ function OptionsCardMenu(props) {
         <>
 
             <Card>
-                {/* <img src={props.img} alt="iamgems da opção" /> */}
+                <img src={props.img} alt="iamgems do prato ou bebida" />
                 <div>
                     <h4>{props.optionMenuName}</h4>
                     <p>{props.optionMenuDescripion}</p>
