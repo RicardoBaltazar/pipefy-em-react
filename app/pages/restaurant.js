@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import styled from 'styled-components';
 import { useRouter } from "next/router"
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 import ImageFood from '../public/assets/prato-de-restaurante-vegetariano.png'
 
@@ -21,6 +22,10 @@ const Main = styled.main`
         margin-top: 1rem;
         margin-bottom: 1rem;
         width: 56%;
+        @media screen and (max-width: 800px) {      
+            width: 95vw;
+            justify-content: center;
+        }
     }
     .restaurant-header h3 {
         letter-spacing:0;
@@ -30,6 +35,9 @@ const Main = styled.main`
     .restaurant-info{
         .restaurant-description{
             font-size: 1rem;
+            @media screen and (max-width: 800px) {      
+                font-size: 0.9rem;
+            }
         }
         p{
             font-size: 0.8rem;
@@ -43,6 +51,9 @@ const Main = styled.main`
     }
     .options{
         width:56%;
+        @media screen and (max-width: 800px) {      
+            width: 95vw;
+        }
 
         button{
             width: 100%;
@@ -57,16 +68,23 @@ const Main = styled.main`
             margin-bottom: 1rem;
             padding: 0.7rem 0 0.2rem 0;
             display: flex;
-            flex-direction: space-between; 
-            transition: 0.2s;
+            justify-content: space-between;
             &:hover{
                 cursor: pointer;
             }
+            @media screen and (max-width: 800px) {      
+                width: 100%;
+            }
+
         }
     }
     .div-items{
         display: grid;
         grid-template-columns: 1fr 1fr;
+        @media screen and (max-width: 800px) {      
+            display: flex;
+            flex-direction: column;
+        }
     }
 `;
 
@@ -74,13 +92,8 @@ export default function PageRestaurant() {
     const router = useRouter()
     const [dataRestaurant, setDataRestaurant] = React.useState([]);
     const [dataImageLunches, setDataImageLunches] = React.useState();
-
     const [showOptionsLunches, setShowOptionsLunches] = React.useState(false);
-    // const onClick = () => setShowOptionsLunches(true)
-
     const [showOptionsDrinks, setShowOptionsDrinks] = React.useState(false);
-    // const onClick = () => setShowOptionsDrinks(true)
-
     const [showOptionsDesserts, setShowOptionsDesserts] = React.useState(false);
     // const onClick = () => setShowOptionsDesserts(true)
 
@@ -162,9 +175,8 @@ export default function PageRestaurant() {
                 <hr></hr>
 
                 <div className='options'>
-                    {/* <button onClick={() => setShowOptionsLunches(false)}>Almoços</button> */}
                     <button onClick={() => setShowOptionsLunches(showOptionsLunches => !showOptionsLunches)}>
-                        Almoços 
+                        Almoços <ArrowDropDownIcon />
                     </button>
                     <div className='div-items'>
                         {showOptionsLunches ? <Lunches /> : null}
@@ -172,35 +184,28 @@ export default function PageRestaurant() {
                         {showOptionsLunches ? <Lunches /> : null}
                         {showOptionsLunches ? <Lunches /> : null}
                     </div>
-                    {/* <img src={dataRestaurant.image}/> */}
-                    {/* <p>{dataRestaurant.drinks[2].name}</p>
-                    <p>{dataRestaurant.lunches[0].name}</p>
-                    <p>{dataRestaurant.lunches[0].description}</p>
-                    <p>{dataRestaurant.lunches[0].price}</p> */}
                 </div>
                 <div className='options'>
-                    <button onClick={() => setShowOptionsDrinks(showOptionsDrinks => !showOptionsDrinks)}>Bebidas</button>
+                    <button onClick={() => setShowOptionsDrinks(showOptionsDrinks => !showOptionsDrinks)}>
+                        Bebidas <ArrowDropDownIcon />
+                    </button>
                     <div className='div-items'>
                         {showOptionsDrinks ? <Drinks /> : null}
                         {showOptionsDrinks ? <Drinks /> : null}
                         {showOptionsDrinks ? <Drinks /> : null}
                         {showOptionsDrinks ? <Drinks /> : null}
                     </div>
-                    {/* <p>{dataRestaurant.drinks[0].name}</p>
-                    <p>{dataRestaurant.drinks[0].description}</p>
-                    <p>{dataRestaurant.drinks[0].price}</p> */}
                 </div>
                 <div className='options'>
-                    <button onClick={() => setShowOptionsDesserts(showOptionsDesserts => !showOptionsDesserts)}>Sobremesas</button>
+                    <button onClick={() => setShowOptionsDesserts(showOptionsDesserts => !showOptionsDesserts)}>
+                        Sobremesas <ArrowDropDownIcon />
+                    </button>
                     <div className='div-items'>
                         {showOptionsDesserts ? <Desserts /> : null}
                         {showOptionsDesserts ? <Desserts /> : null}
                         {showOptionsDesserts ? <Desserts /> : null}
                         {showOptionsDesserts ? <Desserts /> : null}
                     </div>
-                    {/* <p>{dataRestaurant.desserts[0].name}</p>
-                    <p>{dataRestaurant.desserts[0].description}</p>
-                    <p>{dataRestaurant.desserts[0].price}</p> */}
                 </div>
             </Main>
         </>
