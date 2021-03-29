@@ -16,14 +16,16 @@ const Main = styled.main`
     width: 100vw;
     .restaurant-header {
         display: flex;
-        justify-content: center;
+        justify-content: left;
         align-items:center;
-        border:1px solid red;
         margin-top: 1rem;
+        margin-bottom: 1rem;
+        width: 56%;
     }
     .restaurant-header h3 {
         letter-spacing:0;
         color: #404040;
+        margin-left: 0.5rem;
     }
     .restaurant-info{
         .restaurant-description{
@@ -33,12 +35,34 @@ const Main = styled.main`
             font-size: 0.8rem;
             letter-spacing:0;
             color: #404040;
+            margin-left: 0.5rem;
         }
         p span {
             font-weight:bold;
         }
     }
     .options{
+        width:56%;
+
+        button{
+            width: 100%;
+            text-align:left;
+            color: #404040;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            border-bottom:1px solid #404040;
+            background-color:#fff;
+            margin-bottom: 1rem;
+            padding: 0.7rem 0 0.2rem 0;
+            display: flex;
+            flex-direction: space-between; 
+            transition: 0.2s;
+            &:hover{
+                cursor: pointer;
+            }
+        }
     }
     .div-items{
         display: grid;
@@ -51,13 +75,13 @@ export default function PageRestaurant() {
     const [dataRestaurant, setDataRestaurant] = React.useState([]);
     const [dataImageLunches, setDataImageLunches] = React.useState();
 
-    const [showOptionsLunches, setShowOptionsLunches] = React.useState(true);
+    const [showOptionsLunches, setShowOptionsLunches] = React.useState(false);
     // const onClick = () => setShowOptionsLunches(true)
 
-    const [showOptionsDrinks, setShowOptionsDrinks] = React.useState(true);
+    const [showOptionsDrinks, setShowOptionsDrinks] = React.useState(false);
     // const onClick = () => setShowOptionsDrinks(true)
 
-    const [showOptionsDesserts, setShowOptionsDesserts] = React.useState(true);
+    const [showOptionsDesserts, setShowOptionsDesserts] = React.useState(false);
     // const onClick = () => setShowOptionsDesserts(true)
 
     // const {
@@ -138,9 +162,10 @@ export default function PageRestaurant() {
                 <hr></hr>
 
                 <div className='options'>
-                    <h3>Almoços</h3>
                     {/* <button onClick={() => setShowOptionsLunches(false)}>Almoços</button> */}
-                    <button onClick={() => setShowOptionsLunches(showOptionsLunches => !showOptionsLunches)}>Almoços</button>
+                    <button onClick={() => setShowOptionsLunches(showOptionsLunches => !showOptionsLunches)}>
+                        Almoços 
+                    </button>
                     <div className='div-items'>
                         {showOptionsLunches ? <Lunches /> : null}
                         {showOptionsLunches ? <Lunches /> : null}
@@ -154,8 +179,7 @@ export default function PageRestaurant() {
                     <p>{dataRestaurant.lunches[0].price}</p> */}
                 </div>
                 <div className='options'>
-                    <h3>Bebidas</h3>
-                    <button onClick={() => setShowOptionsDrinks(false)}>Bebidas</button>
+                    <button onClick={() => setShowOptionsDrinks(showOptionsDrinks => !showOptionsDrinks)}>Bebidas</button>
                     <div className='div-items'>
                         {showOptionsDrinks ? <Drinks /> : null}
                         {showOptionsDrinks ? <Drinks /> : null}
@@ -167,8 +191,7 @@ export default function PageRestaurant() {
                     <p>{dataRestaurant.drinks[0].price}</p> */}
                 </div>
                 <div className='options'>
-                    <h3>Sobremesas</h3>
-                    <button onClick={() => setShowOptionsDesserts(false)}>Sobremesas</button>
+                    <button onClick={() => setShowOptionsDesserts(showOptionsDesserts => !showOptionsDesserts)}>Sobremesas</button>
                     <div className='div-items'>
                         {showOptionsDesserts ? <Desserts /> : null}
                         {showOptionsDesserts ? <Desserts /> : null}
