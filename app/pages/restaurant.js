@@ -5,8 +5,8 @@ import { useRouter } from "next/router"
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 import ImageFood from '../public/assets/prato-de-restaurante-vegetariano.png'
-
 import Header from '../src/Components/Header';
+
 import OptionsCardMenu from '../src/Components/Options-Card-Menu';
 
 const Main = styled.main`
@@ -75,7 +75,6 @@ const Main = styled.main`
             @media screen and (max-width: 800px) {      
                 width: 100%;
             }
-
         }
     }
     .div-items{
@@ -95,15 +94,6 @@ export default function PageRestaurant() {
     const [showOptionsLunches, setShowOptionsLunches] = React.useState(false);
     const [showOptionsDrinks, setShowOptionsDrinks] = React.useState(false);
     const [showOptionsDesserts, setShowOptionsDesserts] = React.useState(false);
-    // const onClick = () => setShowOptionsDesserts(true)
-
-    // const {
-    //     query: { id }
-    // } = router
-    console.log(router);
-    console.log(router.query.id);
-
-
 
     React.useEffect(() => {
         fetch(`http://localhost:8000/restaurants/${router.query.id}`)
@@ -114,45 +104,43 @@ export default function PageRestaurant() {
                 console.log('Respota Recebida');
                 console.log(data);
                 setDataRestaurant(data);
-                // setDataImageLunches(data.lunches[0].image)
             })
     }, []);
 
-    // function toggle() {
-    //     setShowOptionsLunches(showOptionsLunches => !showOptionsLunches);
-    //   }
+
 
     const Lunches = () => (
         <OptionsCardMenu
+
             img={ImageFood}
-            optionMenuName='Almoço 1'
-            optionMenuDescripion='Descrição do Almoço 1'
-            optionMenuValue='R$ 19,90'
-        // optionMenuName={dataRestaurant.lunches[0].name}
-        // optionMenuDescripion={dataRestaurant.lunches[0].description}
-        // optionMenuValue={dataRestaurant.lunches[0].price}
+            // optionMenuName='Almoço 1'
+            // optionMenuDescripion='Descrição do Almoço 1'
+            // optionMenuValue='R$ 19,90'
+        optionMenuName={dataRestaurant.lunches[0].name}
+        optionMenuDescripion={dataRestaurant.lunches[0].description}
+        optionMenuValue={dataRestaurant.lunches[0].price}
         />
     )
     const Drinks = () => (
         <OptionsCardMenu
             img={ImageFood}
-            optionMenuName='Bebida 1'
-            optionMenuDescripion='Descrição da bebida 1'
-            optionMenuValue='R$ 15,90'
-        // optionMenuName={dataRestaurant.drinks[0].name}
-        // optionMenuDescripion={dataRestaurant.drinks[0].description}
-        // optionMenuValue={dataRestaurant.drinks[0].price}
+            // optionMenuName='Bebida 1'
+            // optionMenuDescripion='Descrição da bebida 1'
+            // optionMenuValue='R$ 15,90'
+        optionMenuName={dataRestaurant.drinks[0].name}
+        optionMenuDescripion={dataRestaurant.drinks[0].description}
+        optionMenuValue={dataRestaurant.drinks[0].price}
         />
     )
     const Desserts = () => (
         <OptionsCardMenu
             img={ImageFood}
-            optionMenuName='Sobremesa 1'
-            optionMenuDescripion='Descrição da sobremesa 1'
-            optionMenuValue="R$ 10,90"
-        // optionMenuName={dataRestaurant.desserts[0].name}
-        // optionMenuDescripion={dataRestaurant.desserts[0].description}
-        // optionMenuValue={dataRestaurant.desserts[0].price}
+            // optionMenuName='Sobremesa 1'
+            // optionMenuDescripion='Descrição da sobremesa 1'
+            // optionMenuValue="R$ 10,90"
+        optionMenuName={dataRestaurant.desserts[0].name}
+        optionMenuDescripion={dataRestaurant.desserts[0].description}
+        optionMenuValue={dataRestaurant.desserts[0].price}
         />
     )
 
